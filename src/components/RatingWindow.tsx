@@ -1,18 +1,24 @@
-import { useState } from "react"
+import { useState} from "react"
 
 import {ReactComponent as StarIcon} from "../images/icon-star.svg"
 import {ReactComponent as ThanksIcon} from "../images/illustration-thank-you.svg"
 
 const RatingWindow = () => {
   const [submitted, setSubmitted] = useState(false);
-  const [selectedRating, setSelectedRating] = useState(null);
+  const toggleSubmit = () => setSubmitted(!submitted);
+
+  const [selectedRating, setSelectedRating] = useState(0);
+  const changeSelectedRating = (n:number) => {
+    setSelectedRating(n);
+    console.log(n);
+  }
   
   const ratingButtons = [1, 2, 3, 4, 5].map((n) => {
     return (
-      <>
-        <input type="radio" value={n} name="rating"/>
+      <div key={n}>
+        <input type="radio" value={n} name="rating" onClick={() => changeSelectedRating(n)}/>
         <label>{n}</label>
-      </>
+      </div>
     )
   })
   if (!submitted) {
@@ -24,13 +30,22 @@ const RatingWindow = () => {
       <ul>
         {ratingButtons}
       </ul>
-      <button type="submit">Submit</button>
+      <button type="submit" onClick={() => {
+        if (selectedRating) {
+          toggleSubmit();
+        } else {
+          alert("Choose a rating to submit first");
+        }
+      }}>Submit</button>
     </div>
     )
   } else {
     return (
       <div>
         <ThanksIcon />
+        <span>
+          <p>You selected {selectedRating} out of 5</p>
+        </span>
         <h2>Thank you!</h2>
         <p>We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!</p>
       </div>
