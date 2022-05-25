@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 import RatingWindow from "./components/RatingWindow"
 import './App.css';
 
