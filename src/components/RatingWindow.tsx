@@ -16,7 +16,7 @@ const RatingWindow = () => {
   const ratingButtons = [1, 2, 3, 4, 5].map((n) => {
     return (
       <div key={n}>
-        <input type="radio" value={n} name="rating" onClick={() => changeSelectedRating(n)}/>
+        <input type="radio" value={n} name="rating" required onClick={() => changeSelectedRating(n)}/>
         <label>{n}</label>
       </div>
     )
@@ -27,16 +27,15 @@ const RatingWindow = () => {
       <StarIcon />
       <h2>How did we do?</h2>
       <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
-      <ul>
+      <form>
         {ratingButtons}
-      </ul>
-      <button type="submit" onClick={() => {
-        if (selectedRating) {
-          toggleSubmit();
-        } else {
-          alert("Choose a rating to submit first");
-        }
-      }}>Submit</button>
+        <input type="submit" onClick={() => {
+          if (selectedRating) {
+            toggleSubmit();
+          }
+        }}
+        value="Submit"/>
+        </form>
     </div>
     )
   } else {
