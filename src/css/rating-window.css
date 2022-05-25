@@ -1,0 +1,109 @@
+:root {
+  /* Colors */
+  --primary: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --light-grey: hsl(217, 12%, 63%);
+  --medium-grey: hsl(216, 12%, 54%);
+  --dark-blue: hsl(213, 19%, 18%);
+  --very-dark-blue: hsl(216, 12%, 8%);
+  /* Typography */
+}
+p {
+  color: var(--medium-grey);
+  font-size: 15px;
+}
+
+/* Rating window styling */
+.container {
+  background-color: var(--very-dark-blue);
+  color: var(--white);
+
+  aspect-ratio: 1 / 1;
+  width: 19em;
+  padding: 1.5em;
+
+  border-radius: 25px;
+}
+.star-icon {
+  background-color: var(--dark-blue);
+
+  aspect-ratio: 1/1;
+  width: 3em;
+  height: 3em;
+
+  border-radius: 25px;
+}
+.star-icon svg {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+  row-gap: 1em;
+}
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--dark-blue);
+
+  aspect-ratio: 1/1;
+  width: 3em;
+  height: 3em;
+
+  border-radius: 50%;
+
+  transition: 0.2s;
+}
+label:hover {
+  cursor: pointer;
+  background-color: var(--primary);
+}
+label + input:checked {
+  background-color: var(--medium-grey);
+}
+input[type="radio"] {
+  display: none;
+}
+input[type="submit"] {
+  background-color: var(--primary);
+  color: var(--white);
+
+  padding: 1em;
+  width: 100%;
+
+  border: none;
+  border-radius: 25px;
+
+  letter-spacing: 0.1em;
+
+  transition: 0.2s;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+/* Thanks for rating styling */
+.thanks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+
+}
+.rating-text {
+  background-color: var(--dark-blue);
+  color: var(--primary);
+
+  padding: 1ch;
+  border-radius: 25px;
+}
