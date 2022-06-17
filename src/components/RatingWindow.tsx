@@ -1,4 +1,4 @@
-import { useState} from "react"
+import { useState } from "react"
 
 import {ReactComponent as StarIcon} from "../images/icon-star.svg"
 import {ReactComponent as ThanksIcon} from "../images/illustration-thank-you.svg"
