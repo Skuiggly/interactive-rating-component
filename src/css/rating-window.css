@@ -1,21 +1,16 @@
-:root {
-  /* Colors */
-  --primary: hsl(25, 97%, 53%);
-  --white: hsl(0, 0%, 100%);
-  --light-grey: hsl(217, 12%, 63%);
-  --medium-grey: hsl(216, 12%, 54%);
-  --dark-blue: hsl(213, 19%, 18%);
-  --very-dark-blue: hsl(216, 12%, 8%);
-  /* Typography */
-}
+/* Typography */
 p {
   color: var(--medium-grey);
   font-size: 15px;
+  line-height: 2.5ch;
+}
+.heading {
+  letter-spacing: 1px;
 }
 
 /* Rating window styling */
 .container {
-  background-color: var(--very-dark-blue);
+  background-color: var(--dark-blue);
   color: var(--white);
 
   aspect-ratio: 1 / 1;
@@ -25,7 +20,7 @@ p {
   border-radius: 25px;
 }
 .star-icon {
-  background-color: var(--dark-blue);
+  background-color: var(--dark-blue-grey);
 
   aspect-ratio: 1/1;
   width: 3em;
@@ -46,12 +41,13 @@ form {
   
   row-gap: 1em;
 }
+/* Rating buttons */
 label {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: var(--dark-blue);
+  background-color: var(--dark-blue-grey);
 
   aspect-ratio: 1/1;
   width: 3em;
@@ -65,12 +61,14 @@ label:hover {
   cursor: pointer;
   background-color: var(--primary);
 }
-label + input:checked {
+input:checked + label {
+  cursor: default;
   background-color: var(--medium-grey);
 }
 input[type="radio"] {
   display: none;
 }
+/* Submit button */
 input[type="submit"] {
   background-color: var(--primary);
   color: var(--white);
@@ -101,7 +99,7 @@ input[type="submit"]:hover {
 
 }
 .rating-text {
-  background-color: var(--dark-blue);
+  background-color: var(--dark-blue-grey);
   color: var(--primary);
 
   padding: 1ch;

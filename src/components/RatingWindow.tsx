@@ -14,13 +14,13 @@ const RatingWindow = () => {
     setSelectedRating(n);
     console.log(n);
   }
-  
-  const ratingButtons = [1, 2, 3, 4, 5].map((n) => {
+  const possibleRatings =[1, 2, 3, 4, 5];
+  const ratingButtons = possibleRatings.map((n) => {
     return (
-      <label key={n}>
-        <input type="radio" value={n} name="rating" required onClick={() => changeSelectedRating(n)}/>
-        <span>{n}</span>
-      </label>
+      <div key={n}>
+        <input value={n} onClick={() => changeSelectedRating(n)} id={n.toString()} name="rating" type="radio" required/>
+        <label htmlFor={n.toString()}>{n}</label>
+      </div>
     )
   })
   if (!submitted) {
@@ -30,8 +30,8 @@ const RatingWindow = () => {
         {/* Couldn't find a better way to center the SVG than playing with viewbox */}
         <StarIcon viewBox="-16 -16 50 50"/>
       </div>
-      <h2>How did we do?</h2>
-      <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+      <h2 className="heading">How did we do?</h2>
+      <p className="text">Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
       <form>
         {ratingButtons}
         <input type="submit" onClick={() => {
@@ -47,7 +47,7 @@ const RatingWindow = () => {
     return (
       <div className="container thanks">
         <ThanksIcon />
-        <p className="rating-text">
+        <p className="text rating-text">
           You selected {selectedRating} out of 5
         </p>
         <h2>Thank you!</h2>
